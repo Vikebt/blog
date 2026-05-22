@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ site.title }}{% endblock %}
+
+{% block content %}
+<section class="about-page">
+    <h1>{{ page.title }}</h1>
+    <div class="page-content">
+        {{ page.content | safe }}
+    </div>
+</section>
+{% endblock %}

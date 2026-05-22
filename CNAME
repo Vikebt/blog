@@ -1,0 +1,3 @@
+# 当您购买域名后，将您的域名写在这里（去掉 # 号）
+# 例如：blog.yourdomain.com
+# 然后配置域名的 DNS CNAME 记录指向 your-username.github.io

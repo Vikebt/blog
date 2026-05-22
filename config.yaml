@@ -1,0 +1,9 @@
+site:
+  title: "我的学习笔记"
+  subtitle: "记录学习路上的点点滴滴"
+  description: "个人学习笔记与技术分享博客"
+  url: "https://your-domain.com"        # ← 买了域名后改成你的域名
+  lang: "zh-cn"
+  author: "Your Name"
+  posts_per_page: 10
+  date_format: "%Y 年 %m 月 %d 日"

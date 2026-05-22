@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}分类 - {{ site.title }}{% endblock %}
+
+{% block content %}
+<section class="tags-page">
+    <h1>文章分类</h1>
+    <div class="tag-cloud">
+        {% for tag, posts in tags.items() %}
+        <a href="/tags/{{ tag }}/" class="tag-item">
+            <span class="tag-name">#{{ tag }}</span>
+            <span class="tag-count">{{ posts|length }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

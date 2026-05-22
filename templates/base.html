@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description if description else site.description }}">
+    <title>{% block title %}{{ site.title }}{% endblock %}</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/rss.xml">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">{{ site.title }}</a>
+                <div class="nav-links">
+                    <a href="/">首页</a>
+                    <a href="/tags/">分类</a>
+                    <a href="/about/">关于</a>
+                </div>
+                <div class="nav-actions">
+                    <button id="search-toggle" class="icon-btn" aria-label="搜索" title="搜索">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                        </svg>
+                    </button>
+                    <button id="theme-toggle" class="icon-btn" aria-label="切换主题" title="切换主题">
+                        <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search overlay -->
+    <div id="search-overlay" class="search-overlay" style="display:none">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="搜索文章标题、标签、内容…" autofocus>
+                <button id="search-close" class="icon-btn" aria-label="关闭搜索">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {{ range(2026, 2027) | first }} {{ site.author }}. Powered by <a href="https://github.com/your-username/blog">Custom Static Blog</a>.</p>
+            <p class="footer-links">
+                <a href="/rss.xml">RSS</a>
+                <a href="/sitemap.xml">Sitemap</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/search.js"></script>
+</body>
+</html>
