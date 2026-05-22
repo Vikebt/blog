@@ -111,7 +111,7 @@ def load_all_posts():
             "description": fm.get("description", ""),
             "draft": fm.get("draft", False),
             "content": html,
-            "url": f"/posts/{slug}/",
+            "url": f"{SITE.get('baseurl', '')}/posts/{slug}/",
         }
         posts.append(post)
 

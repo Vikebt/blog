@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ description if description else site.description }}">
+    <meta name="base-url" content="{{ site.baseurl | default('') }}">
     <title>{% block title %}{{ site.title }}{% endblock %}</title>
 
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/rss.xml">
+    <link rel="stylesheet" href="{{ site.baseurl | default('') }}/static/css/style.css">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl | default('') }}/rss.xml">
 
     {% block extra_head %}{% endblock %}
 </head>
@@ -15,11 +16,11 @@
     <header class="site-header">
         <div class="container">
             <nav class="nav">
-                <a href="/" class="logo">{{ site.title }}</a>
+                <a href="{{ site.baseurl | default('') }}/" class="logo">{{ site.title }}</a>
                 <div class="nav-links">
-                    <a href="/">首页</a>
-                    <a href="/tags/">分类</a>
-                    <a href="/about/">关于</a>
+                    <a href="{{ site.baseurl | default('') }}/">首页</a>
+                    <a href="{{ site.baseurl | default('') }}/tags/">分类</a>
+                    <a href="{{ site.baseurl | default('') }}/about/">关于</a>
                 </div>
                 <div class="nav-actions">
                     <button id="search-toggle" class="icon-btn" aria-label="搜索" title="搜索">
@@ -61,15 +62,15 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; {{ range(2026, 2027) | first }} {{ site.author }}. Powered by <a href="https://github.com/your-username/blog">Custom Static Blog</a>.</p>
+            <p>&copy; 2026 {{ site.author }}. Powered by Custom Static Blog.</p>
             <p class="footer-links">
-                <a href="/rss.xml">RSS</a>
-                <a href="/sitemap.xml">Sitemap</a>
+                <a href="{{ site.baseurl | default('') }}/rss.xml">RSS</a>
+                <a href="{{ site.baseurl | default('') }}/sitemap.xml">Sitemap</a>
             </p>
         </div>
     </footer>
 
-    <script src="/static/js/theme.js"></script>
-    <script src="/static/js/search.js"></script>
+    <script src="{{ site.baseurl | default('') }}/static/js/theme.js"></script>
+    <script src="{{ site.baseurl | default('') }}/static/js/search.js"></script>
 </body>
 </html>

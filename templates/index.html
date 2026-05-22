@@ -19,7 +19,7 @@
             {% if post.tags %}
             <span class="post-tags">
                 {% for tag in post.tags %}
-                <a href="/tags/{{ tag }}/" class="tag">#{{ tag }}</a>
+                <a href="{{ site.baseurl | default('') }}/tags/{{ tag }}/" class="tag">#{{ tag }}</a>
                 {% endfor %}
             </span>
             {% endif %}
@@ -34,11 +34,11 @@
 {% if total_pages and total_pages > 1 %}
 <nav class="pagination">
     {% if page and page > 1 %}
-    <a href="{% if page == 2 %}/{% else %}/page/{{ page - 1 }}/{% endif %}" class="pagination-prev">← 上一页</a>
+    <a href="{% if page == 2 %}{{ site.baseurl | default('') }}/{% else %}{{ site.baseurl | default('') }}/page/{{ page - 1 }}/{% endif %}" class="pagination-prev">← 上一页</a>
     {% endif %}
     <span class="pagination-info">第 {{ page }} / {{ total_pages }} 页</span>
     {% if page and page < total_pages %}
-    <a href="/page/{{ page + 1 }}/" class="pagination-next">下一页 →</a>
+    <a href="{{ site.baseurl | default('') }}/page/{{ page + 1 }}/" class="pagination-next">下一页 →</a>
     {% endif %}
 </nav>
 {% endif %}

@@ -1,9 +1,15 @@
 (function() {
     let searchIndex = [];
 
+    function getBaseUrl() {
+        var meta = document.querySelector('meta[name="base-url"]');
+        return meta ? meta.getAttribute('content') : '';
+    }
+
     async function loadSearchIndex() {
         try {
-            const res = await fetch('/search-index.json');
+            var baseUrl = getBaseUrl();
+            const res = await fetch(baseUrl + '/search-index.json');
             searchIndex = await res.json();
         } catch (e) {
             console.warn('Search index not available');
