@@ -767,3 +767,35 @@ img { max-width: 100%; height: auto; border-radius: var(--radius-sm); }
     .search-container { width: 95%; }
     .tags-page h1, .tag-page h1 { font-size: 1.4rem; }
 }
+
+/* ── Image placeholders ───────────────────── */
+.post-content img {
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.post-content img[src*="fig-"]:not([src*="http"])::before,
+.post-content img:not([src*="http"]):not([src^="data"])::before {
+    content: "📷 " attr(alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    background: var(--bg-soft);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 20px;
+    text-align: center;
+}
+
+.post-content img[src*="fig-"]:not([src*="http"]),
+.post-content img:not([src*="http"]):not([src^="data"]) {
+    display: inline-flex;
+    min-width: 200px;
+    min-height: 120px;
+}
